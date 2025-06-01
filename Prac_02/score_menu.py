@@ -46,3 +46,4 @@ def print_stars(score):
     print("*" * int(score))
 
 main()
+
