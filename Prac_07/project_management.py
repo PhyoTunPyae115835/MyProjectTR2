@@ -3,19 +3,52 @@ from project import Project
 FILENAME = "projects.txt"
 
 def main():
-    projects = load_projects(FILENAME)
     print("Welcome to Pythonic Project Management")
+    projects = load_projects(FILENAME)
     print(f"Loaded {len(projects)} projects from {FILENAME}")
 
+    menu = """
+- (L)oad projects
+- (S)ave projects
+- (D)isplay projects
+- (F)ilter projects by date
+- (A)dd new project
+- (U)pdate project
+- (Q)uit
+"""
+
     while True:
-        print("\n- (D)isplay projects\n- (Q)uit")
+        print(menu)
         choice = input(">>> ").lower()
-        if choice == "d":
+
+        if choice == "l":
+            filename = input("Filename to load: ")
+            projects = load_projects(filename)
+            print(f"Loaded {len(projects)} projects from {filename}")
+        elif choice == "s":
+            filename = input("Filename to save: ")
+            save_projects(filename, projects)
+            print(f"Projects saved to {filename}")
+        elif choice == "d":
             display_projects(projects)
+        elif choice == "f":
+            filter_projects_by_date(projects)
+        elif choice == "a":
+            new_project = add_new_project()
+            projects.append(new_project)
+        elif choice == "u":
+            update_project(projects)
         elif choice == "q":
+            confirm = input(f"Would you like to save to {FILENAME}? ").lower()
+            if confirm == "yes":
+                save_projects(FILENAME, projects)
+                print(f"Projects saved to {FILENAME}")
+            else:
+                print("Changes not saved.")
             break
         else:
-            print("Invalid choice")
+            print("Invalid option")
+
 
 def load_projects(filename):
     """Load projects from a file into a list of Project objects."""
