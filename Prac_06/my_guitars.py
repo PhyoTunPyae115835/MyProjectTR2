@@ -13,6 +13,16 @@ def main():
     for i, guitar in enumerate(guitars, 1):
         print(f"Guitar {i}: {guitar}")
 
+    print("\nAdd new guitars:")
+    name = input("Name: ")
+    while name != "":
+        year = get_valid_int("Year: ")
+        cost = get_valid_float("Cost: ")
+        new_guitar = Guitar(name, year, cost)
+        guitars.append(new_guitar)
+        print(f"{new_guitar} added.\n")
+        name = input("Name: ")
+
 def load_guitars(filename):
     """Load guitars from a CSV file and return a list of Guitar objects."""
     guitars = []
@@ -25,6 +35,8 @@ def load_guitars(filename):
     except FileNotFoundError:
         print(f"Warning: '{filename}' not found. Starting with an empty list.")
     return guitars
+
+
 
 if __name__ == '__main__':
     main()
