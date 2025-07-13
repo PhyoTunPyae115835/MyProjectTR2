@@ -1,5 +1,6 @@
 """Guitar class for storing guitar details and providing utility methods."""
 
+from datetime import date
 
 class Guitar:
     """Represent a Guitar object."""
