@@ -166,6 +166,15 @@ def update_project(projects):
     except ValueError:
         print("Invalid priority. Skipping update.")
 
+def save_projects(filename, projects):
+    """Save the list of projects to a file with tab-delimited values."""
+    with open(filename, "w") as file:
+        file.write("Name\tStart Date\tPriority\tCost Estimate\tCompletion Percentage\n")
+        for project in projects:
+            file.write(f"{project.name}\t{project.start_date.strftime('%d/%m/%Y')}\t"
+                       f"{project.priority}\t{project.cost_estimate:.2f}\t{project.completion_percentage}\n")
+
 
 if __name__ == "__main__":
     main()
+
