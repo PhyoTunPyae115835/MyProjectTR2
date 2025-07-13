@@ -41,6 +41,12 @@ def load_guitars(filename):
     except FileNotFoundError:
         print(f"Warning: '{filename}' not found. Starting with an empty list.")
     return guitars
+def save_guitars(filename, guitars):
+    """Save guitars to a CSV file."""
+    with open(filename, "w", newline="") as out_file:
+        writer = csv.writer(out_file)
+        for guitar in guitars:
+            writer.writerow([guitar.name, guitar.year, guitar.cost])
 
 def get_valid_int(prompt):
     """Get a valid integer from the user."""
@@ -49,7 +55,6 @@ def get_valid_int(prompt):
             return int(input(prompt))
         except ValueError:
             print("Invalid input; enter a valid number.")
-
 
 def get_valid_float(prompt):
     """Get a valid float from the user."""
