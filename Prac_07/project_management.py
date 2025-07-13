@@ -1,4 +1,5 @@
 from project import Project
+from datetime import datetime
 
 FILENAME = "projects.txt"
 
@@ -77,3 +78,22 @@ def display_projects(projects):
     print("Completed projects:")
     for project in complete_projects:
         print(f"  {project}")
+
+def filter_projects_by_date(projects):
+    """Filter and display projects that start on or after a given date."""
+    date_string = input("Show projects that start after date (dd/mm/yyyy): ")
+    try:
+        filter_date = datetime.strptime(date_string, "%d/%m/%Y").date()
+    except ValueError:
+        print("Invalid date format. Please use dd/mm/yyyy.")
+        return
+
+    filtered_projects = [p for p in projects if p.start_date >= filter_date]
+    filtered_projects.sort(key=lambda p: p.start_date)
+
+    print(f"Projects starting on or after {filter_date.strftime('%d/%m/%Y')}:")
+    for project in filtered_projects:
+        print(f"  {project}")
+
+if __name__ == "__main__":
+    main()
