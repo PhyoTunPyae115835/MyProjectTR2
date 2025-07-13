@@ -13,6 +13,7 @@ class ProgrammingLanguage:
         self.typing = typing
         self.reflection = reflection
         self.year = year
+        self.pointer_arithmetic = pointer_arithmetic
 
     def __str__(self):
         """Return a formatted string representation of the ProgrammingLanguage."""
