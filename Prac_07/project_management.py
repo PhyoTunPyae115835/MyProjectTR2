@@ -95,5 +95,45 @@ def filter_projects_by_date(projects):
     for project in filtered_projects:
         print(f"  {project}")
 
+def add_new_project():
+    """Prompt user to enter new project details and return a Project object."""
+    print("Let's add a new project")
+    name = input("Name: ")
+    while True:
+        try:
+            start_date_str = input("Start date (dd/mm/yyyy): ")
+            datetime.strptime(start_date_str, "%d/%m/%Y")  # Validate format
+            break
+        except ValueError:
+            print("Invalid date format. Use dd/mm/yyyy.")
+
+    priority = get_valid_int("Priority: ")
+    cost_estimate = get_valid_float("Cost estimate: $")
+    completion = get_valid_int("Percent complete: ", min_value=0, max_value=100)
+
+    return Project(name, start_date_str, priority, cost_estimate, completion)
+
+
+def get_valid_int(prompt, min_value=None, max_value=None):
+    """Get a validated integer input from the user."""
+    while True:
+        try:
+            value = int(input(prompt))
+            if (min_value is not None and value < min_value) or (max_value is not None and value > max_value):
+                print(f"Value must be between {min_value} and {max_value}")
+                continue
+            return value
+        except ValueError:
+            print("Invalid input; enter an integer.")
+
+
+def get_valid_float(prompt):
+    """Get a validated float input from the user."""
+    while True:
+        try:
+            return float(input(prompt))
+        except ValueError:
+            print("Invalid input; enter a number.")
+
 if __name__ == "__main__":
     main()
