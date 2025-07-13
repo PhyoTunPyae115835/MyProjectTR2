@@ -15,10 +15,7 @@ def main():
     languages = []
     # Open the file for reading
     in_file = open('languages.csv', 'r')
-    # File format is like: Language,Typing,Reflection,Year
-    # 'Consume' the first line (header) - we don't need its contents
     in_file.readline()
-    # All other lines are language data
     for line in in_file:
         parts = line.strip().split(',')
         reflection = parts[2] == "Yes"
@@ -37,8 +34,6 @@ main()
 
 def using_csv():
     """Language file reader version using the csv module."""
-    # First, open the file for reading - note: specify newline
-    # to avoid quoted \n in strings being considered a new record
     in_file = open('languages.csv', 'r', newline='')
     in_file.readline()
     reader = csv.reader(in_file)  # use default dialect, Excel
@@ -55,9 +50,8 @@ def using_namedtuple():
     """Language file reader version using a named tuple."""
     in_file = open('languages.csv', 'r', newline='')
     file_field_names = in_file.readline().strip().split(',')
-    print(file_field_names)
-    # Language will be a new subclass of the tuple data type class
-    Language = namedtuple('Language', 'name, typing, reflection, year')
+    # Should automatically contain 5 fields now including 'PointerArithmetic'
+    Language = namedtuple('Language', 'name typing reflection year pointer_arithmetic')
     reader = csv.reader(in_file)  # use default dialect, Excel
 
     for row in reader:
