@@ -36,6 +36,22 @@ def load_guitars(filename):
         print(f"Warning: '{filename}' not found. Starting with an empty list.")
     return guitars
 
+def get_valid_int(prompt):
+    """Get a valid integer from the user."""
+    while True:
+        try:
+            return int(input(prompt))
+        except ValueError:
+            print("Invalid input; enter a valid number.")
+
+
+def get_valid_float(prompt):
+    """Get a valid float from the user."""
+    while True:
+        try:
+            return float(input(prompt))
+        except ValueError:
+            print("Invalid input; enter a valid number.")
 
 
 if __name__ == '__main__':
