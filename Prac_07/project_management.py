@@ -2,6 +2,21 @@ from project import Project
 
 FILENAME = "projects.txt"
 
+def main():
+    projects = load_projects(FILENAME)
+    print("Welcome to Pythonic Project Management")
+    print(f"Loaded {len(projects)} projects from {FILENAME}")
+
+    while True:
+        print("\n- (D)isplay projects\n- (Q)uit")
+        choice = input(">>> ").lower()
+        if choice == "d":
+            display_projects(projects)
+        elif choice == "q":
+            break
+        else:
+            print("Invalid choice")
+
 def load_projects(filename):
     """Load projects from a file into a list of Project objects."""
     projects = []
