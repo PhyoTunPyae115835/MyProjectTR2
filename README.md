@@ -19,5 +19,5 @@ GitHub: [PhyoTunPyae115835](https://github.com/PhyoTunPyae115835)
 
 ## Useful Resources
 
-- [Programming Patterns](https://cp1404.github.io/programming-patterns/)
+- [Programming Patterns](https://github.com/CP1404/Starter/wiki/Programming-Patterns)
 - [CP1404 Practicals Instructions](https://github.com/CP1404/Practicals)
