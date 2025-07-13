@@ -135,5 +135,37 @@ def get_valid_float(prompt):
         except ValueError:
             print("Invalid input; enter a number.")
 
+def update_project(projects):
+    """Allow user to select and update a project's priority and completion."""
+    print("Projects:")
+    for i, project in enumerate(projects):
+        print(f"{i} {project}")
+
+    try:
+        choice = int(input("Project choice: "))
+        selected_project = projects[choice]
+    except (ValueError, IndexError):
+        print("Invalid selection.")
+        return
+
+    print(f"Selected project: {selected_project}")
+
+    # Update completion
+    try:
+        new_completion = input("New Percentage (leave blank to skip): ")
+        if new_completion:
+            selected_project.completion_percentage = int(new_completion)
+    except ValueError:
+        print("Invalid percentage. Skipping update.")
+
+    # Update priority
+    try:
+        new_priority = input("New Priority (leave blank to skip): ")
+        if new_priority:
+            selected_project.priority = int(new_priority)
+    except ValueError:
+        print("Invalid priority. Skipping update.")
+
+
 if __name__ == "__main__":
     main()
