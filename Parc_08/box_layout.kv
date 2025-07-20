@@ -3,6 +3,7 @@
 
     Button:
         text: 'Clear'
+        on_press: app.handle_clear()
 
     TextInput:
         id: input_name
@@ -15,4 +16,10 @@
     Label:
         id: output_label
         text: 'Enter your name'
-        color: (1, 1, 0, 1)  # Yellow
+        color: (1, 1, 0, 1)
+        canvas.before:
+            Color:
+                rgba: 0, 0, 0, 1  # Black background
+            Rectangle:
+                pos: self.pos
+                size: self.size
