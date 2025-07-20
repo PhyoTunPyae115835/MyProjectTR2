@@ -1,8 +1,18 @@
 <BoxLayoutDemo>:
     orientation: 'vertical'
+
     Button:
-        text: 'Button 1'
+        text: 'Clear'
+
+    TextInput:
+        id: input_name
+        text: ''
+
     Button:
-        text: 'Button 2'
-    Button:
-        text: 'Button 3'
+        text: 'Greet'
+        on_press: app.handle_greet()
+
+    Label:
+        id: output_label
+        text: 'Enter your name'
+        color: (1, 1, 0, 1)  # Yellow
