@@ -16,8 +16,8 @@ class ConvertBox(BoxLayout):
 class ConvertApp(App):
     def build(self):
         self.title = "Convert Miles to Kilometres"
-        Builder.load_file("convert_miles_km.kv")  # load style/rules
-        return ConvertBox()  # explicitly return the root widget
+        Builder.load_file("convert_miles_km.kv")  # load .kv file
+        return ConvertBox()  # return root widget
 
 
 if __name__ == '__main__':

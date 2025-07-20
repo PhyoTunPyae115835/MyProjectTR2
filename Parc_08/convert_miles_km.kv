@@ -3,11 +3,25 @@
     padding: 10
     spacing: 10
 
-    TextInput:
-        id: input_miles
-        hint_text: "Enter miles"
-        multiline: False
-        input_filter: 'float'
+    BoxLayout:
+        size_hint_y: 0.2
+        TextInput:
+            id: input_miles
+            hint_text: "Enter miles"
+            multiline: False
+            input_filter: 'float'
+
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint_x: 0.3
+            Button:
+                text: "Up"
+                on_press:
+                    input_miles.text = str(float(input_miles.text) + 1) if input_miles.text.replace('.', '', 1).isdigit() else "0"
+            Button:
+                text: "Down"
+                on_press:
+                    input_miles.text = str(float(input_miles.text) - 1) if input_miles.text.replace('.', '', 1).isdigit() else "0"
 
     Button:
         text: "Convert miles to km"
