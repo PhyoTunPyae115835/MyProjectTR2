@@ -14,7 +14,8 @@ class SquareRootBox(BoxLayout):
 class SquareApp(App):
     def build(self):
         self.title = "Square Number"
-        return Builder.load_file("squaring.kv")
+        Builder.load_file("squaring.kv")
+        return SquareRootBox()  # ✅ instantiate the root class
 
 if __name__ == '__main__':
     SquareApp().run()
