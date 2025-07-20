@@ -1,0 +1,16 @@
+<SquareRootBox>:
+    orientation: 'vertical'
+
+    TextInput:
+        id: input_number
+        text: ''
+        multiline: False
+        input_filter: 'float'
+
+    Button:
+        text: 'Square'
+        on_press: root.handle_square()
+
+    Label:
+        id: output_label
+        text: ''
