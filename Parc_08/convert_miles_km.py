@@ -8,16 +8,17 @@ class ConvertBox(BoxLayout):
         try:
             miles = float(self.ids.input_miles.text)
             km = miles * 1.60934
-            self.ids.output_label.text = f"{km:.5f}"
+            self.ids.output_label.text = f'{km:.5f}'
         except ValueError:
             self.ids.output_label.text = "Invalid input"
 
 
-class ConvertMilesKmApp(App):
+class ConvertApp(App):
     def build(self):
         self.title = "Convert Miles to Kilometres"
-        return Builder.load_file("convert_miles_km.kv")
+        Builder.load_file("convert_miles_km.kv")  # load style/rules
+        return ConvertBox()  # explicitly return the root widget
 
 
 if __name__ == '__main__':
-    ConvertMilesKmApp().run()
+    ConvertApp().run()

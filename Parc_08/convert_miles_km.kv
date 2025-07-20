@@ -1,0 +1,19 @@
+<ConvertBox>:
+    orientation: 'vertical'
+    padding: 10
+    spacing: 10
+
+    TextInput:
+        id: input_miles
+        hint_text: "Enter miles"
+        multiline: False
+        input_filter: 'float'
+
+    Button:
+        text: "Convert miles to km"
+        on_press: root.handle_conversion()
+
+    Label:
+        id: output_label
+        text: "Enter a number and press \"Convert\""
+        color: 1, 0.4, 0.7, 1
