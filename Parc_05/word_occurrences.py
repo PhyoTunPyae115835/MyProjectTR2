@@ -1,6 +1,8 @@
 """
 CP1404/CP5632 Practical
 Word Occurrences
+Estimate time: 20 minutes
+Actual time: 12 minutes
 """
 
 text = input("Text: ")
