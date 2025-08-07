@@ -1,0 +1,27 @@
+<SquareRootBox>:
+    orientation: 'vertical'
+
+    BoxLayout:
+        orientation: 'horizontal'
+
+        TextInput:
+            id: input_number
+            text: ''
+            multiline: False
+            input_filter: 'float'
+
+        Button:
+            text: 'Square'
+            on_press: root.handle_square()
+
+        Label:
+            id: output_label
+            text: ''
+            color: (1, 0.4, 0.7, 1)
+
+    Label:
+        text: 'Enter a number and press "Square"'
+        color: (1, 0.4, 0.7, 1)
+        halign: 'center'
+        valign: 'middle'
+        text_size: self.size
