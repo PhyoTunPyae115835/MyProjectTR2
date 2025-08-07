@@ -14,6 +14,15 @@ def fahrenheit(f_value):
     except ValueError:
         return "Invalid input! Please enter a number."
 
+@app.route("/c/<f_value>")
+def celsius(f_value):
+    try:
+        f_value = float(f_value)
+        fahrenheit = (f_value * 9 / 5) + 32
+        return f"{f_value}°C = {round(fahrenheit, 2)}°F"
+    except ValueError:
+        return "Invalid input! Please enter a number."
+
 
 if __name__ == "__main__":
     app.run(debug=True)
